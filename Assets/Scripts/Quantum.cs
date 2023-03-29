@@ -53,5 +53,33 @@ public class Quantum
         Vector<Complex> State = DenseVector.OfArray(new Complex[] {a,b});
         return State;
     }
+
+    /// <summary>
+    /// Method <c>RandomOp</c> returns a random matrix and the name of the operation.
+    /// </summary>
+    public static (Matrix<Complex>, int) RandomOp(){
+        
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                return (PauliX, 0);
+
+            case 1:
+                return (PauliY, 1);
+
+            case 2:
+                return (PauliZ, 2);
+
+            case 3:
+                return (Hadamard, 3);
+        }
+        return (PauliX, 0);
+    }
+
+    public static (double, double) getProbs(Vector<Complex> inputstate){
+        // var result = inputstate.Multiply(inputstate.Conjugate());
+        var result = inputstate.PointwiseMultiply(inputstate.Conjugate());
+        return (result.Real()[0],+result.Real()[1]);
+    }
     
 }
