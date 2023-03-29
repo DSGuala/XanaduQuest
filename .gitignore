@@ -22,6 +22,18 @@
 # Visual Studio cache directory
 .vs/
 
+# VS Code settings
+.vscode/
+
+# UserSettings
+UserSettings/
+
+# Crash report?
+*.blob
+
+# Not sure what's in these settings
+ProjectSettings/
+
 # Gradle cache directory
 .gradle/
 
