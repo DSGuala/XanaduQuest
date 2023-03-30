@@ -14,6 +14,7 @@ public class MonsterHealth : MonoBehaviour
     {
         Health = Quantum.QubitState(new Complex(1,0), new Complex(0,0));
         UpdateBars();
+        GameObject.Find("Player").GetComponent<PlayerPickUp>().targetMonster=gameObject;
         
     }
 
