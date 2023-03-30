@@ -26,22 +26,22 @@ public class PlayerHealth : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         switch (other.gameObject.tag)
         {
-            case "X":
+            case "Xbullet":
                 ChangeState(Quantum.PauliX);
                 Destroy(other.gameObject);
                 break;
 
-            case "Y":
+            case "Ybullet":
                 ChangeState(Quantum.PauliY);
                 Destroy(other.gameObject);
                 break;
 
-            case "Z":
+            case "Zbullet":
                 ChangeState(Quantum.PauliZ);
                 Destroy(other.gameObject);
                 break;
 
-            case "H":
+            case "Hbullet":
                 ChangeState(Quantum.Hadamard);
                 Destroy(other.gameObject);
                 break;

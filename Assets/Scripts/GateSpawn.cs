@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSpawn : MonoBehaviour
+public class GateSpawn : MonoBehaviour
 {
     public GameObject[] myObjects;
     private float timer;

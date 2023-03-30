@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1619311155332384650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8323184261907912519}
+  m_Layer: 0
+  m_Name: flamePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8323184261907912519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619311155332384650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8113914911925559743}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3566628638808754900
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +294,8 @@ GameObject:
   - component: {fileID: 8113914911925559743}
   - component: {fileID: 208263998613358065}
   - component: {fileID: 1015886274523876279}
+  - component: {fileID: 5273369342976579959}
+  - component: {fileID: 6731797763045662675}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -283,6 +316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 435163211718466727}
+  - {fileID: 8323184261907912519}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -352,6 +386,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar0Fill: {fileID: 8745508188481895580}
   bar1Fill: {fileID: 3566628638808754900}
+--- !u!114 &5273369342976579959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033359236144197948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb24242354daaf4f8370db6bb54d65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myObjects:
+  - {fileID: 5918616175488274250, guid: fd720c853a89200419debe45f9c426cb, type: 3}
+  - {fileID: 2136659811392965397, guid: ca6f115b1dc64b9428405aed135c323b, type: 3}
+  - {fileID: 4299962338072748457, guid: b7e4b4cbb254f844e950533381ad16ca, type: 3}
+  - {fileID: 6743625705572259771, guid: 3ade2f5faafdf624580e0359edad3eac, type: 3}
+  period: 5
+--- !u!114 &6731797763045662675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033359236144197948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50ef2b6f5c638b4cab528f7682ddace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myFlames:
+  - {fileID: 1862197256505958756, guid: 1d55635a505235d4d9f5eea8217dc40d, type: 3}
+  - {fileID: 4529307720033135857, guid: 1784f7c767070584f90fb7e5af39cefb, type: 3}
+  - {fileID: 3098080017799259283, guid: 2eb69c9ecaac16c419318bb5fbbc0aeb, type: 3}
+  - {fileID: 6943603235696631301, guid: c0b3c486ba87c60488809059840fb48d, type: 3}
+  flamePos: {fileID: 8323184261907912519}
 --- !u!1 &5418937622866038997
 GameObject:
   m_ObjectHideFlags: 0
