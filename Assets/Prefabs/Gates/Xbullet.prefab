@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  gateName: X
 --- !u!61 &7314199860132925331
 BoxCollider2D:
   m_ObjectHideFlags: 0

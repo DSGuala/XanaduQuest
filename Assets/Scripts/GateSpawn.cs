@@ -22,7 +22,8 @@ public class GateSpawn : MonoBehaviour
         if (timer > period)
         {
             int randomIndex = Random.Range(0, myObjects.Length);
-            Vector2 randomSpawnPosition = new Vector2(Random.Range(-8, 9), Random.Range(-4, 5));
+            Vector2 randomSpawnPosition = transform.position + new Vector3(Random.Range(-DungeonData.RoomWidth/2.5f, DungeonData.RoomWidth/2.5f),
+                Random.Range(-DungeonData.RoomHeight/3.5f, DungeonData.RoomHeight/3.5f), 0);
             Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
             timer = 0;
         }
