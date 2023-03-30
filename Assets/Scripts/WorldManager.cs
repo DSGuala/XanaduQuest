@@ -85,8 +85,8 @@ public class WorldManager : MonoBehaviour
         // until y = 5, we won't have a boss
         // after y = 5, we have increasing probability of finding a boss
         // if we are at the last room, we make it a boss
-        if (Random.Range(0,y) > 4 || y == DungeonData.DungeonHeight-2){
-            if (y == DungeonData.DungeonHeight-1){
+        if (y == DungeonData.DungeonHeight-2 || Random.Range(0,y) > 4){
+            if (y == DungeonData.DungeonHeight-2){
                 print("monster100");
                 rooms[x,y].roomDoor = new Door("Monster100");
             }
