@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinSpawn : MonoBehaviour
 {
-    public GameObject coinPrefab;
+    public GameObject[] myObjects;
     private float timer;
     public float period;
 
@@ -21,8 +21,9 @@ public class CoinSpawn : MonoBehaviour
 
         if (timer > period)
         {
-            Vector2 randomSpawnPosition = new Vector2(Random.Range(-8, 9), Random.Range(-4, 4));
-            Instantiate(coinPrefab, randomSpawnPosition, Quaternion.identity);
+            int randomIndex = Random.Range(0, myObjects.Length);
+            Vector2 randomSpawnPosition = new Vector2(Random.Range(-8, 9), Random.Range(-4, 5));
+            Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
             timer = 0;
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public GameObject flame;
+    public GameObject[] myFlames;
     public Transform flamePos;
 
     private float timer;
@@ -28,7 +28,8 @@ public class EnemyShooting : MonoBehaviour
 
     void shoot()
     {
-        Instantiate(flame, flamePos.position, Quaternion.identity);
+        int randomIndex = Random.Range(0, myFlames.Length);
+        Instantiate(myFlames[randomIndex], flamePos.position, Quaternion.identity);
     }
 
 }

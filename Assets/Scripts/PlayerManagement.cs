@@ -5,7 +5,10 @@ using TMPro;
 
 public class PlayerManagement : MonoBehaviour
 {
-    public static int numberOfCoins;
+    public static int numberOfX;
+    public static int numberOfY;
+    public static int numberOfZ;
+    public static int numberOfH;
     public TextMeshProUGUI coinsText;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,6 @@ public class PlayerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinsText.text = "Coins: " + numberOfCoins;
+        coinsText.text = "X: " + numberOfX + " Y: " + numberOfY + " Z: " + numberOfZ + " H: " + numberOfH;
     }
 }
