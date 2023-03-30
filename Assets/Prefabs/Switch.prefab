@@ -172,7 +172,7 @@ MonoBehaviour:
   switchSprites:
   - {fileID: 924015772, guid: 78f3687e5c62a501795892f0d871000e, type: 3}
   - {fileID: -1597176760, guid: 78f3687e5c62a501795892f0d871000e, type: 3}
-  reversible: 1
+  reversible: 0
 --- !u!50 &7593573781684381068
 Rigidbody2D:
   serializedVersion: 4

@@ -9,6 +9,7 @@ public class DoorBehavior : MonoBehaviour
     // Start is called before the first frame update
     public WorldManager WorldManager;
     public RoomCoord connectedroomcoord;
+    public RoomCoord roomcoord;
     public Vector<Complex> doorState;
     public GameObject bar0Sprite;
     public GameObject bar0Fill;
@@ -27,9 +28,9 @@ public class DoorBehavior : MonoBehaviour
         
         var thisRoom= WorldManager.rooms[x, y];
         var balancedvals = door.balancedvals;
-
+        
         doorState = Quantum.QubitState(new Complex(balancedvals[0],balancedvals[1]), new Complex(balancedvals[2], balancedvals[3]));
-
+        
         // Reflect door state in the bars
         UpdateBars();
         // Set the sprites
@@ -47,7 +48,15 @@ public class DoorBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
+            //make room measurement
+            (double prob0, double prob1) = Quantum.getProbs(doorState);
+            print("probability of first option displayed: "+ prob0.ToString());
+            WorldManager.MeasureRoom(connectedroomcoord,roomcoord);
+
+            //create the indicated room
             WorldManager.CreateRoom(connectedroomcoord);
+            
+            //move to room
             WorldManager.MoveToRoom(connectedroomcoord);
 
         }
@@ -55,6 +64,7 @@ public class DoorBehavior : MonoBehaviour
 
     public void ChangeState(Matrix<Complex> op){
         doorState = Quantum.MatrixVectorMult(op, doorState);
+        door.balancedvals = RoomSwitch.state2balancedvals(doorState);
         UpdateBars();
     }
 

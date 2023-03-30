@@ -17,7 +17,7 @@ public class SwitchBehavior : MonoBehaviour
     public List<Sprite> switchSprites;
     int spriteIndex = 0;
 
-    public bool reversible = true;
+    public bool reversible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +35,6 @@ public class SwitchBehavior : MonoBehaviour
     {
         if (playerNear){
             if (Input.GetKeyDown(KeyCode.Space)){
-                //Change state according to the switch operation
-                doorBehavior.ChangeState(switchOperation);
-                //Change switch sprite
                 flipswitch();
                 
             }
@@ -62,6 +59,7 @@ public class SwitchBehavior : MonoBehaviour
         if (reversible==false && spriteIndex==1){
             return;
         }
+        doorBehavior.ChangeState(switchOperation);
         spriteIndex= (spriteIndex+1)%2;
         gameObject.GetComponent<SpriteRenderer>().sprite= switchSprites[spriteIndex];
     }

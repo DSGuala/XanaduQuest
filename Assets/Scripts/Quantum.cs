@@ -61,7 +61,7 @@ public class Quantum
     /// </summary>
     public static (Matrix<Complex>, int) RandomOp(){
         
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, DungeonData.n_types_gates+1))
         {
             case 0:
                 return (PauliX, 0);

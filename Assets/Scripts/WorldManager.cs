@@ -15,13 +15,16 @@ public class WorldManager : MonoBehaviour
     public GameObject RoomPrefab;
     public GameObject switchPrefab;
 
+    public GameObject treasurePrefab;
+    public List<GameObject> monsterPrefabs;
+    public GameObject BossPrefab;
+
     void Start()
     {
-         ActiveRoomCoord = new RoomCoord(0,0);
-         InitializeRoom(ActiveRoomCoord);
-         CreateRoom(ActiveRoomCoord);
+         ActiveRoomCoord = new RoomCoord(0,0);         
          print("initializing dungeon");
          InitializeDungeon();
+         CreateRoom(ActiveRoomCoord);
     }
 
     // Update is called once per frame
@@ -32,13 +35,16 @@ public class WorldManager : MonoBehaviour
 
     void InitializeDungeon()
     {
-        print("creating rooms");
-        for (int x = -DungeonData.DungeonWidth/2; x<DungeonData.DungeonWidth/2; x++){
-            for (int y = -DungeonData.DungeonHeight/2; y<DungeonData.DungeonHeight/2; y++){
+        print("initializing rooms");
+        // for (int x = -DungeonData.DungeonWidth/2; x<DungeonData.DungeonWidth/2; x++)
+        {
+            int x = 0;
+            for (int y = 0; y<DungeonData.DungeonHeight; y++){
+                print("initialize room at"+x.ToString()+","+y.ToString());
                 InitializeRoom(new RoomCoord(x,y));
             }
         }
-        print("finished creating rooms");
+        print("finished initializing rooms");
     }
 
     /// <summary>
@@ -46,12 +52,12 @@ public class WorldManager : MonoBehaviour
     /// </summary>
     public static int roomcoord2index_x(int x)
     {
-        return x + DungeonData.DungeonWidth/2;
+        return x;
     }
 
     public static int roomcoord2index_y(int x)
     {
-        return x + DungeonData.DungeonHeight/2;
+        return x;
     }
 
     public static int tosquarecoord_x(int x)
@@ -79,7 +85,7 @@ public class WorldManager : MonoBehaviour
         // until y = 5, we won't have a boss
         // after y = 5, we have increasing probability of finding a boss
         // if we are at the last room, we make it a boss
-        if (Random.Range(0,y) > 4 || y == DungeonData.DungeonHeight-1){
+        if (Random.Range(0,y) > 4 || y == DungeonData.DungeonHeight-2){
             if (y == DungeonData.DungeonHeight-1){
                 print("monster100");
                 rooms[x,y].roomDoor = new Door("Monster100");
@@ -114,6 +120,7 @@ public class WorldManager : MonoBehaviour
         GameObject instantiatedRoom = Instantiate(RoomPrefab,thisRoom.CenterPosition,Quaternion.identity);
         DoorBehavior roomDoorBehavior = instantiatedRoom.GetComponentInChildren<DoorBehavior>();
         roomDoorBehavior.connectedroomcoord = new RoomCoord(coord.x, coord.y+1);
+        roomDoorBehavior.roomcoord = coord;
         roomDoorBehavior.WorldManager = gameObject.GetComponent<WorldManager>();
         roomDoorBehavior.door = thisRoom.roomDoor;
         roomDoorBehavior.firstBarOutcome = thisRoom.roomDoor.doorType;
@@ -137,10 +144,28 @@ public class WorldManager : MonoBehaviour
             //set the switches
             SwitchBehavior switchBehavior = instantiatedRoom.GetComponentInChildren<SwitchBehavior>();
             switchBehavior.doorBehavior = roomDoorBehavior;
+
+
         }
         
-        //choose a random operation from the Quantum library
-        // switchBehavior.switchOperation = Quantum.
+        // create room contents: treasure, monster, or boss
+
+        switch (thisRoom.RoomType)
+        {
+            case "Treasure":
+                Instantiate(treasurePrefab, thisRoom.CenterPosition, Quaternion.identity);
+                break;
+
+            case "Monster":
+                //choose a random monster prefab
+                int i = Random.Range(0,monsterPrefabs.Count);
+                Instantiate(monsterPrefabs[i], thisRoom.CenterPosition, Quaternion.identity);
+                break;
+
+            case "Boss":
+                Instantiate(BossPrefab, thisRoom.CenterPosition, Quaternion.identity);
+                break;
+        }
     }
 
     public void MoveToRoom(RoomCoord coord){
@@ -153,9 +178,61 @@ public class WorldManager : MonoBehaviour
         float destinationy = rooms[xindex,yindex].CenterPosition.y;
 
         Camera.transform.position = new Vector3(destinationx,destinationy,Camera.transform.position.z);
-        Player.transform.position = new Vector3(destinationx,destinationy,Player.transform.position.z);
+        Player.transform.position = new Vector3(destinationx,destinationy-DungeonData.RoomHeight/2.5f,Player.transform.position.z);
         ActiveRoomCoord = new RoomCoord(coord.x,coord.y);
         
+    }
+
+    public void MeasureRoom(RoomCoord coord, RoomCoord prevcoord){
+        // this should set the room type: treasure, monster, or boss
+        // it will be set based on the door probabilities
+        // 
+        int xindex = roomcoord2index_x(coord.x);
+        int yindex = roomcoord2index_y(coord.y);
+        Room theRoom = rooms[xindex,yindex];
+
+        int previousxindex = roomcoord2index_x(prevcoord.x);
+        int previousyindex = roomcoord2index_y(prevcoord.y);
+        Room previousRoom = rooms[previousxindex,previousyindex];
+
+        // get the probability of room contents:
+        (double p0, double p1)= Quantum.getProbs(RoomSwitch.balancedvals2state(previousRoom.roomDoor.balancedvals));
+        print("Probability of first option effective: " + p0.ToString());
+        // theRoom.RoomType = "monster", "boss" or "treasure";
+        switch (previousRoom.roomDoor.doorType)
+        {
+            case "Treasure":
+                if (Random.value < p0) // we get the first thing, treasure
+                {
+                    print("got p0 object");
+                    theRoom.RoomType="Treasure";
+                }
+                else //we get the second thing, monster
+                {
+                    print("got p1 object");
+                    theRoom.RoomType="Monster";
+                }
+                break;
+
+            case "Monster":
+                if (Random.value < p0) // we get the first thing, monster
+                {
+                    print("got p0 object");
+                    theRoom.RoomType="Monster";
+                }
+                else //we get the second thing, Boss
+                {
+                    print("got p1 object");
+                    theRoom.RoomType="Boss";
+                }
+                break;
+            
+            case "Monster100":
+                print("Monster100, so we get a boss");
+                theRoom.RoomType="Boss"; // we get the first thing, boss
+                break;
+
+        }
     }
 }
 
