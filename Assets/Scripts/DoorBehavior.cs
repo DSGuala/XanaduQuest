@@ -18,17 +18,15 @@ public class DoorBehavior : MonoBehaviour
     public string firstBarOutcome;
 
     public List<Sprite> spriteList;
+    public Door door;
 
     void Start()
     {
-        float[] balancedvals = new float[4];
-        balancedvals[0] = Random.value;
-        balancedvals[1] = Random.Range(0,Mathf.Sqrt(1-Mathf.Pow(balancedvals[0],2)));
-        balancedvals[2] = Random.Range(0, Mathf.Sqrt(1-Mathf.Pow(balancedvals[0],2)-Mathf.Pow(balancedvals[1],2)));
-        balancedvals[3] = Mathf.Sqrt(1-Mathf.Pow(balancedvals[0],2)-Mathf.Pow(balancedvals[1],2)-Mathf.Pow(balancedvals[2],2));
-
-        var rng = new System.Random();
-        rng.Shuffle(balancedvals);
+        int x = WorldManager.roomcoord2index_x(connectedroomcoord.x);
+        int y = WorldManager.roomcoord2index_y(connectedroomcoord.y);
+        
+        var thisRoom= WorldManager.rooms[x, y];
+        var balancedvals = door.balancedvals;
 
         doorState = Quantum.QubitState(new Complex(balancedvals[0],balancedvals[1]), new Complex(balancedvals[2], balancedvals[3]));
 

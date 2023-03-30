@@ -521,6 +521,7 @@ MonoBehaviour:
   Camera: {fileID: 519420028}
   Player: {fileID: 208153948}
   RoomPrefab: {fileID: 8162273738239612550, guid: a099f192e5801aa3890a44897e02a6ae, type: 3}
+  switchPrefab: {fileID: 1567436622715097967, guid: 6a13cf6a65f723792a472448a692c75e, type: 3}
 --- !u!4 &1570599663
 Transform:
   m_ObjectHideFlags: 0

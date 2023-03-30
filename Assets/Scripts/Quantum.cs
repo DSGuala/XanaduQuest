@@ -5,6 +5,8 @@ using Complex = System.Numerics.Complex;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Complex;
 
+// update DungeonData n_types_gates when updating this if necessary.
+
 
 /// <summary>
 /// Class <c>Quantum</c> acts as a library to perform quantum operations and work with states.
