@@ -296,9 +296,10 @@ GameObject:
   - component: {fileID: 1015886274523876279}
   - component: {fileID: 5273369342976579959}
   - component: {fileID: 6731797763045662675}
+  - component: {fileID: -4309561397321842411}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,6 +423,19 @@ MonoBehaviour:
   - {fileID: 3098080017799259283, guid: 2eb69c9ecaac16c419318bb5fbbc0aeb, type: 3}
   - {fileID: 6943603235696631301, guid: c0b3c486ba87c60488809059840fb48d, type: 3}
   flamePos: {fileID: 8323184261907912519}
+--- !u!114 &-4309561397321842411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033359236144197948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d0c8a2d980b3209b50b3e11044a5c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisMonsterTime: 60
 --- !u!1 &5418937622866038997
 GameObject:
   m_ObjectHideFlags: 0

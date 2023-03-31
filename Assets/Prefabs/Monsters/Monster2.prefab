@@ -46,9 +46,10 @@ GameObject:
   - component: {fileID: 7708240532341448275}
   - component: {fileID: 5226917868523007729}
   - component: {fileID: 6069035571439925733}
+  - component: {fileID: 3213368829340602387}
   m_Layer: 0
   m_Name: Monster2
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,6 +173,19 @@ MonoBehaviour:
   - {fileID: 3098080017799259283, guid: 2eb69c9ecaac16c419318bb5fbbc0aeb, type: 3}
   - {fileID: 6943603235696631301, guid: c0b3c486ba87c60488809059840fb48d, type: 3}
   flamePos: {fileID: 6019903868963424192}
+--- !u!114 &3213368829340602387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834112801053636791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d0c8a2d980b3209b50b3e11044a5c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisMonsterTime: 30
 --- !u!1 &2911797026927585443
 GameObject:
   m_ObjectHideFlags: 0
