@@ -3,6 +3,8 @@ Q1 Hackathon
 
 ## A small dungeon crawling game with "quantum" concepts.
 
+[Click here to play!](https://dsguala.github.io/XanaduQuest/)
+
 ### Instructions:
 
 - Explore the dungeon, press switches to change the chances of receiving treasure or meeting monsters.
