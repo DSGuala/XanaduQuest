@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8827566005462478438}
   - component: {fileID: -7237188201508284211}
   - component: {fileID: 3493523618532268800}
+  - component: {fileID: -5791290363737476162}
   m_Layer: 0
   m_Name: Zgate
   m_TagString: Zgate
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5791290363737476162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743625705572259771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3037ade1528cf251cbda167e2aa14845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

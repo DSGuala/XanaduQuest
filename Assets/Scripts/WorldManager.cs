@@ -234,6 +234,24 @@ public class WorldManager : MonoBehaviour
 
         }
     }
+
+    public void MeasureEntities()
+    {
+        // find an measure monsters
+        GameObject[] monsters;
+        GameObject player;
+        monsters = GameObject.FindGameObjectsWithTag("Monster");
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        foreach (GameObject monster in monsters)
+        {
+            monster.GetComponent<MonsterHealth>().Measure();
+        }
+        
+        player.GetComponent<PlayerHealth>().Measure();
+
+
+    }
 }
 
 /// <summary>

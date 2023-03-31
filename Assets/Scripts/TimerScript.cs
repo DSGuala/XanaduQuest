@@ -31,8 +31,8 @@ public class TimerScript : MonoBehaviour
                 TimeLeft = 0;
                 TimerOn = false;
                 // call the world manager to make a measurement
-                GameObject worldManager = GameObject.Find("World Manager");
-                // worldManager.GetComponent<WorldManager>()
+                GameObject worldManager = GameObject.Find("WorldManager");
+                worldManager.GetComponent<WorldManager>().MeasureEntities();
             }
         }
     }

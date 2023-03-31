@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3948376233731436652}
   - component: {fileID: 1832014095444699154}
   - component: {fileID: 8290196683245449116}
+  - component: {fileID: 8196717137612915600}
   m_Layer: 0
   m_Name: Xgate
   m_TagString: Xgate
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8196717137612915600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136659811392965397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3037ade1528cf251cbda167e2aa14845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

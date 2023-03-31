@@ -10,7 +10,7 @@ public class MonsterTimerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerScript = GameObject.Find("World Manager").GetComponent<TimerScript>();
+        timerScript = GameObject.Find("WorldManager").GetComponent<TimerScript>();
         timerScript.TimeLeft = thisMonsterTime;
         timerScript.TimerOn = true;
         
@@ -20,5 +20,12 @@ public class MonsterTimerManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ResetTimer()
+    {
+        timerScript.TimeLeft=thisMonsterTime;
+        timerScript.TimerOn = true;
+
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5269981879402160957}
   - component: {fileID: 667248964499979449}
   - component: {fileID: -3933047587820152052}
+  - component: {fileID: 9120212519591989001}
   m_Layer: 0
   m_Name: Ygate
   m_TagString: Ygate
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9120212519591989001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299962338072748457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3037ade1528cf251cbda167e2aa14845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

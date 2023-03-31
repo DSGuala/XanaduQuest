@@ -10,6 +10,9 @@ public class MonsterHealth : MonoBehaviour
     public GameObject bar0Fill;
     public GameObject bar1Fill;
     // Start is called before the first frame update
+    public GameObject popParticles;
+    public GameObject WinUI;
+    public bool Boss = false;
     void Start()
     {
         Health = Quantum.QubitState(new Complex(1,0), new Complex(0,0));
@@ -25,7 +28,6 @@ public class MonsterHealth : MonoBehaviour
     }
 
     public void ChangeState(Matrix<Complex> op){
-        print("monster health changed");
         Health = Quantum.MatrixVectorMult(op, Health);
         UpdateBars();
     }
@@ -34,5 +36,37 @@ public class MonsterHealth : MonoBehaviour
         (double prob0, double prob1) = Quantum.getProbs(Health);
         bar0Fill.transform.localScale=new Vector3((float) prob0*3.2f, bar0Fill.transform.localScale.y,bar0Fill.transform.localScale.z);
         bar1Fill.transform.localScale=new Vector3((float) prob1*3.2f, bar1Fill.transform.localScale.y,bar1Fill.transform.localScale.z);
+    }
+
+    public void Measure(){
+        (double p_live, double p_die) = Quantum.getProbs(Health);
+        if (Random.value < p_live)
+        {
+            Live();
+        }
+        else
+        {
+            Die();
+        }
+
+    }
+
+    void Die(){
+        Instantiate(popParticles, gameObject.transform.position + Vector3.back*3, Quaternion.identity);
+        if (Boss){
+            act
+        }
+        Destroy(gameObject);
+    }
+
+    void Live(){
+        Health = Quantum.QubitState(new Complex(1,0), new Complex(0,0));
+        gameObject.GetComponent<MonsterTimerManager>().ResetTimer();
+        UpdateBars();
+
+    }
+
+    void ActivateWinUI(){
+        WinUI.SetActive(true);
     }
 }

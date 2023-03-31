@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar0Fill: {fileID: 658530729}
   bar1Fill: {fileID: 2043595311}
+  popParticles: {fileID: 2752960181619173524, guid: e66334219f5b861f09c860078abdf109, type: 3}
 --- !u!114 &208153955
 MonoBehaviour:
   m_ObjectHideFlags: 0

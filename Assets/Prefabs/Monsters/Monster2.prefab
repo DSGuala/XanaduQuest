@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar0Fill: {fileID: 4997840639941936627}
   bar1Fill: {fileID: 6861897214127755332}
+  popParticles: {fileID: 2752960181619173524, guid: c4d782744b76ff7af811a617064c649a, type: 3}
 --- !u!114 &5226917868523007729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d0c8a2d980b3209b50b3e11044a5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisMonsterTime: 30
+  thisMonsterTime: 10
 --- !u!1 &2911797026927585443
 GameObject:
   m_ObjectHideFlags: 0
