@@ -13,13 +13,13 @@ Q1 Hackathon
 ### Good luck!
 
 Assets used:
-https://opengameart.org/content/gold-treasure-icons-16x16
-https://opengameart.org/content/pixel-art-skull
-https://opengameart.org/content/good-neighbors-pixel-font
-https://opengameart.org/content/pixel-art-laboratory-props
-https://opengameart.org/content/lab-sprites
-https://opengameart.org/content/cave-tileset-0
-https://opengameart.org/content/lots-of-free-2d-tiles-and-sprites-by-hyptosis
-https://opengameart.org/content/dungeon-tileset
-https://opengameart.org/content/a-blocky-dungeon
-https://nedokontent.itch.io/ui-wooden-controls
+- https://opengameart.org/content/gold-treasure-icons-16x16
+- https://opengameart.org/content/pixel-art-skull
+- https://opengameart.org/content/good-neighbors-pixel-font
+- https://opengameart.org/content/pixel-art-laboratory-props
+- https://opengameart.org/content/lab-sprites
+- https://opengameart.org/content/cave-tileset-0
+- https://opengameart.org/content/lots-of-free-2d-tiles-and-sprites-by-hyptosis
+- https://opengameart.org/content/dungeon-tileset
+- https://opengameart.org/content/a-blocky-dungeon
+- https://nedokontent.itch.io/ui-wooden-controls
