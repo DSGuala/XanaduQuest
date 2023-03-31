@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4396519570746687606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4396519570746687604}
+  - component: {fileID: 4396519570746687605}
+  - component: {fileID: 4396519570746687595}
+  - component: {fileID: 4396519570746687594}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4396519570746687604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396519570746687606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4396519570746687605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396519570746687606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0e8e1b9a088215e9c4446a1e00c911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  Player: {fileID: 0}
+  RoomPrefab: {fileID: 8162273738239612550, guid: a099f192e5801aa3890a44897e02a6ae, type: 3}
+  switchPrefab: {fileID: 1567436622715097967, guid: 6a13cf6a65f723792a472448a692c75e, type: 3}
+  treasurePrefab: {fileID: 2352312276026390966, guid: e186e962a0bc14f74a685a38bd4457d7, type: 3}
+  monsterPrefabs:
+  - {fileID: 7674962758453070951, guid: b6095b8d05fc001df9220a44b45e9911, type: 3}
+  - {fileID: 1834112801053636791, guid: 55992449a76243790988dba5de2ff612, type: 3}
+  BossPrefab: {fileID: 4033359236144197948, guid: 44761f3cbb72f68b897c95d9e0a6c798, type: 3}
+  winUI: {fileID: 0}
+--- !u!114 &4396519570746687595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396519570746687606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2395f27a67b41d144bf9c6a1e77e9ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLeft: 30
+  TimerOn: 0
+  TimerTxt: {fileID: 0}
+--- !u!114 &4396519570746687594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396519570746687606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6234a9a623e6e1840a566427d113660f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
