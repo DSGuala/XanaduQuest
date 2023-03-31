@@ -5,10 +5,10 @@ Q1 Hackathon
 
 ### Instructions:
 
-Explore the dungeon, press switches to change the chances of receiving treasure or meeting monsters.
-During battles your state collapses to "alive" or "dead" when the measurement timer runs out. Same goes for the enemies.
-Pick up the  golden logic gates that appear to affect the enemy's state.
-Avoid the red logic gates to keep the enemy from changing your state.
+- Explore the dungeon, press switches to change the chances of receiving treasure or meeting monsters.
+- During battles your state collapses to "alive" or "dead" when the measurement timer runs out. Same goes for the enemies.
+- Pick up the  golden logic gates that appear to affect the enemy's state.
+- Avoid the red logic gates to keep the enemy from changing your state.
 
 ### Good luck!
 
