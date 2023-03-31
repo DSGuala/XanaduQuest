@@ -18,6 +18,7 @@ public class WorldManager : MonoBehaviour
     public GameObject treasurePrefab;
     public List<GameObject> monsterPrefabs;
     public GameObject BossPrefab;
+    public GameObject winUI;
 
     void Start()
     {
@@ -147,11 +148,13 @@ public class WorldManager : MonoBehaviour
             case "Monster":
                 //choose a random monster prefab
                 int i = Random.Range(0,monsterPrefabs.Count);
-                Instantiate(monsterPrefabs[i], thisRoom.CenterPosition, Quaternion.identity);
+                GameObject monsterUI = Instantiate(monsterPrefabs[i], thisRoom.CenterPosition, Quaternion.identity);
+                
                 break;
 
             case "Boss":
-                Instantiate(BossPrefab, thisRoom.CenterPosition, Quaternion.identity);
+                GameObject monsterUI2 =  Instantiate(BossPrefab, thisRoom.CenterPosition, Quaternion.identity);
+                monsterUI2.GetComponent<MonsterHealth>().WinUI=winUI;
                 break;
         }
 

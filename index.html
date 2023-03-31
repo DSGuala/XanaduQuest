@@ -7,7 +7,7 @@
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
-    <script src="Build/secondbuild.loader.js"></script>
+    <script src="Build/ThirdBuild.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -25,9 +25,9 @@
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/secondbuild.data",
-        frameworkUrl: "Build/secondbuild.framework.js",
-        codeUrl: "Build/secondbuild.wasm",
+        dataUrl: "Build/ThirdBuild.data",
+        frameworkUrl: "Build/ThirdBuild.framework.js",
+        codeUrl: "Build/ThirdBuild.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Xanadu Quest",

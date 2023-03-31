@@ -187,7 +187,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: bd7a18750afdede9eb960addd9c12af3, type: 3}
   m_Color: {r: 1, g: 0, b: 0.009691238, a: 1}
   m_FlipX: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   bar1Fill: {fileID: 3566628638808754900}
   popParticles: {fileID: 2752960181619173524, guid: c4d782744b76ff7af811a617064c649a, type: 3}
   WinUI: {fileID: 0}
-  Boss: 0
+  Boss: 1
   CoinPrefab: {fileID: 9100477554713342306, guid: 758ef393c8f378d41ae87a365e795d64, type: 3}
   force: 2
 --- !u!114 &5273369342976579959
@@ -665,7 +665,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: bd7a18750afdede9eb960addd9c12af3, type: 3}
   m_Color: {r: 0.028004408, g: 1, b: 0, a: 1}
   m_FlipX: 0

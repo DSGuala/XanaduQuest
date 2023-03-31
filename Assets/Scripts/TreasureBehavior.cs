@@ -70,7 +70,7 @@ public class TreasureBehavior : MonoBehaviour
         int n_coins = Random.Range(1,4);
         for (int i = 0; i<n_coins; i++)
         {
-            GameObject instantiatedCoin = Instantiate(CoinPrefab, transform.position+Vector3.up*2, Quaternion.identity);
+            GameObject instantiatedCoin = Instantiate(CoinPrefab, transform.position+Vector3.up*3, Quaternion.identity);
 
             instantiatedCoin.GetComponent<Rigidbody2D>().AddForce(Vector2.up*force*(1+Random.Range(0f,0.5f)), ForceMode2D.Impulse);
             if (Random.value>0.5)

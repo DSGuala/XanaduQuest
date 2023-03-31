@@ -56,6 +56,7 @@ public class MonsterHealth : MonoBehaviour
     void Die(){
         Instantiate(popParticles, gameObject.transform.position + Vector3.back*3, Quaternion.identity);
         if (Boss){
+            print("activating winUI");
             ActivateWinUI();
         }
         

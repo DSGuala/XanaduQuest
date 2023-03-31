@@ -56,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die(){
         Instantiate(popParticles, gameObject.transform.position + Vector3.back*3, Quaternion.identity);
+        LoseUI.SetActive(true);
         Destroy(gameObject);
     }
 
