@@ -18,24 +18,25 @@ public class PlayerPickUp : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        print("detected collision with" + other.gameObject.tag);
         switch (other.gameObject.tag)
         {
-            case "Xattack":
+            case "Xgate":
                 targetMonster.GetComponent<MonsterHealth>().ChangeState(Quantum.PauliX);
                 Destroy(other.gameObject);
                 break;
 
-            case "Yattack":
+            case "Ygate":
                 targetMonster.GetComponent<MonsterHealth>().ChangeState(Quantum.PauliY);
                 Destroy(other.gameObject);
                 break;
 
-            case "Zattack":
+            case "Zgate":
                 targetMonster.GetComponent<MonsterHealth>().ChangeState(Quantum.PauliZ);
                 Destroy(other.gameObject);
                 break;
 
-            case "Hattack":
+            case "Hgate":
                 targetMonster.GetComponent<MonsterHealth>().ChangeState(Quantum.Hadamard);
                 Destroy(other.gameObject);
                 break;
