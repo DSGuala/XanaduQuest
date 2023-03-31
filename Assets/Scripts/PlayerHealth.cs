@@ -24,34 +24,6 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        print("player collided with "+other.gameObject.name);
-        switch (other.gameObject.tag)
-        {
-            case "Xbullet":
-                print("applying " +other.gameObject.tag);
-                ChangeState(Quantum.PauliX);
-                Destroy(other.gameObject);
-                break;
-
-            case "Ybullet":
-                print("applying " +other.gameObject.tag);
-                ChangeState(Quantum.PauliY);
-                Destroy(other.gameObject);
-                break;
-
-            case "Zbullet":
-                print("applying " +other.gameObject.tag);
-                ChangeState(Quantum.PauliZ);
-                Destroy(other.gameObject);
-                break;
-
-            case "Hbullet":
-                print("applying " +other.gameObject.tag);
-                ChangeState(Quantum.Hadamard);
-                Destroy(other.gameObject);
-                break;
-        }
-
         
 
     }
