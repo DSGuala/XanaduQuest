@@ -1,5 +1,6 @@
 # XanaduQuest
-Q1 Hackathon
+Q1 Hackathon with [Alvaro Ballon](https://github.com/alvaro-at-xanadu)
+
 
 ## A small dungeon crawling game with "quantum" concepts.
 
