@@ -13,6 +13,8 @@ public class MonsterHealth : MonoBehaviour
     public GameObject popParticles;
     public GameObject WinUI;
     public bool Boss = false;
+    public GameObject CoinPrefab;
+    public float force = 2;
     void Start()
     {
         Health = Quantum.QubitState(new Complex(1,0), new Complex(0,0));
@@ -54,8 +56,40 @@ public class MonsterHealth : MonoBehaviour
     void Die(){
         Instantiate(popParticles, gameObject.transform.position + Vector3.back*3, Quaternion.identity);
         if (Boss){
-            act
+            ActivateWinUI();
         }
+        
+        foreach (GameObject room in GameObject.FindGameObjectsWithTag("Room"))
+        {
+            room.GetComponent<RoomBehavior>().Door.SetActive(true);
+            foreach (GameObject roomSwitch in room.GetComponent<RoomBehavior>().Switches)
+            {
+                roomSwitch.SetActive(true);
+            }
+        };
+
+        // create coins
+        int n_coins = Random.Range(1,4);
+        if (Boss)
+        {
+            n_coins = Random.Range(3,6);
+        }
+        for (int i = 0; i<n_coins; i++)
+        {
+            GameObject instantiatedCoin = Instantiate(CoinPrefab, transform.position+Vector3.up*2, Quaternion.identity);
+
+            instantiatedCoin.GetComponent<Rigidbody2D>().AddForce(Vector2.up*force*(1+Random.Range(0f,0.5f)), ForceMode2D.Impulse);
+            if (Random.value>0.5)
+            {
+                instantiatedCoin.GetComponent<Rigidbody2D>().AddForce(Vector2.left*force, ForceMode2D.Impulse);
+            }
+            else{
+                instantiatedCoin.GetComponent<Rigidbody2D>().AddForce(Vector2.right*force, ForceMode2D.Impulse);
+            }
+            
+
+        }
+
         Destroy(gameObject);
     }
 

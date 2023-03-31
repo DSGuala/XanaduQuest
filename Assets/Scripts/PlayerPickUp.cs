@@ -18,7 +18,6 @@ public class PlayerPickUp : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        print("detected collision with" + other.gameObject.tag);
         switch (other.gameObject.tag)
         {
             case "Xgate":

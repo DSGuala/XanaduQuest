@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerManagement : MonoBehaviour
+public class RoomBehavior : MonoBehaviour
 {
-    public static int numberOfCoins;
-    public Text scoreText;
+    public GameObject Door;
+    public List<GameObject> Switches;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +15,6 @@ public class PlayerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score : " + numberOfCoins;
+        
     }
 }

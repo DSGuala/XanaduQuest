@@ -8,6 +8,7 @@ public class EnemyShooting : MonoBehaviour
     public Transform flamePos;
 
     private float timer;
+    public float shootPeriod = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class EnemyShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 2)
+        if (timer > shootPeriod)
         {
             timer = 0;
             shoot();

@@ -25,6 +25,8 @@ public class WorldManager : MonoBehaviour
          print("initializing dungeon");
          InitializeDungeon();
          CreateRoom(ActiveRoomCoord);
+         
+
     }
 
     // Update is called once per frame
@@ -40,7 +42,6 @@ public class WorldManager : MonoBehaviour
         {
             int x = 0;
             for (int y = 0; y<DungeonData.DungeonHeight; y++){
-                print("initialize room at"+x.ToString()+","+y.ToString());
                 InitializeRoom(new RoomCoord(x,y));
             }
         }
@@ -87,16 +88,13 @@ public class WorldManager : MonoBehaviour
         // if we are at the last room, we make it a boss
         if (y == DungeonData.DungeonHeight-2 || Random.Range(0,y) > 4){
             if (y == DungeonData.DungeonHeight-2){
-                print("monster100");
                 rooms[x,y].roomDoor = new Door("Monster100");
             }
             else{
-                print("monster");
                 rooms[x,y].roomDoor = new Door("Monster");
             }
         }
         else{
-            print("treasure");
             rooms[x,y].roomDoor = new Door("Treasure");
         }
         
@@ -124,7 +122,59 @@ public class WorldManager : MonoBehaviour
         roomDoorBehavior.WorldManager = gameObject.GetComponent<WorldManager>();
         roomDoorBehavior.door = thisRoom.roomDoor;
         roomDoorBehavior.firstBarOutcome = thisRoom.roomDoor.doorType;
+        GameObject tempDoor = roomDoorBehavior.gameObject;
+        tempDoor.SetActive(false);
+        // create and set switches
+        CreateSwitches(coord, instantiatedRoom, roomDoorBehavior);
+        // delete switches if the next room is a mandatory boss room
+        if (coord.y==DungeonData.DungeonHeight-2)
+        {
+            foreach (GameObject roomSwitch in instantiatedRoom.GetComponent<RoomBehavior>().Switches)
+            {
+                Destroy(roomSwitch);
+            }
+        }
         
+        
+        // create room contents: treasure, monster, or boss
+
+        switch (thisRoom.RoomType)
+        {
+            case "Treasure":
+                Instantiate(treasurePrefab, thisRoom.CenterPosition, Quaternion.identity);
+                break;
+
+            case "Monster":
+                //choose a random monster prefab
+                int i = Random.Range(0,monsterPrefabs.Count);
+                Instantiate(monsterPrefabs[i], thisRoom.CenterPosition, Quaternion.identity);
+                break;
+
+            case "Boss":
+                Instantiate(BossPrefab, thisRoom.CenterPosition, Quaternion.identity);
+                break;
+        }
+
+        if (coord.x == 0 && coord.y == 0)
+        {
+            print("setting door active");
+            tempDoor.SetActive(true);
+            foreach (GameObject roomSwitch in instantiatedRoom.GetComponent<RoomBehavior>().Switches)
+            {
+                roomSwitch.SetActive(true);
+            }
+        }
+
+        
+    }
+
+    private void CreateSwitches(RoomCoord coord, GameObject instantiatedRoom, DoorBehavior roomDoorBehavior){
+        int x = roomcoord2index_x(coord.x);
+        int y = roomcoord2index_y(coord.y);
+
+        // grab the room at this coordinate
+        Room thisRoom = rooms[x,y];
+
         Vector3[] switchPositions = {new Vector3(-3f, 5.66f, 0f),
         new Vector3(3f, 5.66f, 0f),
         new Vector3(-4.65f, 5.66f, 0f),
@@ -145,27 +195,12 @@ public class WorldManager : MonoBehaviour
             SwitchBehavior switchBehavior = instantiatedRoom.GetComponentInChildren<SwitchBehavior>();
             switchBehavior.doorBehavior = roomDoorBehavior;
 
+            thisSwitch.SetActive(false);
+            instantiatedRoom.GetComponent<RoomBehavior>().Switches.Add(thisSwitch);
+
 
         }
-        
-        // create room contents: treasure, monster, or boss
 
-        switch (thisRoom.RoomType)
-        {
-            case "Treasure":
-                Instantiate(treasurePrefab, thisRoom.CenterPosition, Quaternion.identity);
-                break;
-
-            case "Monster":
-                //choose a random monster prefab
-                int i = Random.Range(0,monsterPrefabs.Count);
-                Instantiate(monsterPrefabs[i], thisRoom.CenterPosition, Quaternion.identity);
-                break;
-
-            case "Boss":
-                Instantiate(BossPrefab, thisRoom.CenterPosition, Quaternion.identity);
-                break;
-        }
     }
 
     public void MoveToRoom(RoomCoord coord){
@@ -197,19 +232,16 @@ public class WorldManager : MonoBehaviour
 
         // get the probability of room contents:
         (double p0, double p1)= Quantum.getProbs(RoomSwitch.balancedvals2state(previousRoom.roomDoor.balancedvals));
-        print("Probability of first option effective: " + p0.ToString());
         // theRoom.RoomType = "monster", "boss" or "treasure";
         switch (previousRoom.roomDoor.doorType)
         {
             case "Treasure":
                 if (Random.value < p0) // we get the first thing, treasure
                 {
-                    print("got p0 object");
                     theRoom.RoomType="Treasure";
                 }
                 else //we get the second thing, monster
                 {
-                    print("got p1 object");
                     theRoom.RoomType="Monster";
                 }
                 break;
@@ -217,19 +249,16 @@ public class WorldManager : MonoBehaviour
             case "Monster":
                 if (Random.value < p0) // we get the first thing, monster
                 {
-                    print("got p0 object");
                     theRoom.RoomType="Monster";
                 }
                 else //we get the second thing, Boss
                 {
-                    print("got p1 object");
                     theRoom.RoomType="Boss";
                 }
                 break;
             
             case "Monster100":
-                print("Monster100, so we get a boss");
-                theRoom.RoomType="Boss"; // we get the first thing, boss
+                theRoom.RoomType="Boss"; // we get the boss
                 break;
 
         }

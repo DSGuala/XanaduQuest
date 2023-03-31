@@ -707,6 +707,10 @@ MonoBehaviour:
   bar0Fill: {fileID: 4249046889596204372}
   bar1Fill: {fileID: 93617822033613631}
   popParticles: {fileID: 2752960181619173524, guid: c4d782744b76ff7af811a617064c649a, type: 3}
+  WinUI: {fileID: 0}
+  Boss: 0
+  CoinPrefab: {fileID: 9100477554713342306, guid: 758ef393c8f378d41ae87a365e795d64, type: 3}
+  force: 2
 --- !u!114 &2818453437828646220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +747,7 @@ MonoBehaviour:
   - {fileID: 3098080017799259283, guid: 2eb69c9ecaac16c419318bb5fbbc0aeb, type: 3}
   - {fileID: 6943603235696631301, guid: c0b3c486ba87c60488809059840fb48d, type: 3}
   flamePos: {fileID: 8150011795143568702}
+  shootPeriod: 2
 --- !u!114 &2062989380726241954
 MonoBehaviour:
   m_ObjectHideFlags: 0

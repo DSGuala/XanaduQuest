@@ -50,7 +50,6 @@ public class DoorBehavior : MonoBehaviour
         {
             //make room measurement
             (double prob0, double prob1) = Quantum.getProbs(doorState);
-            print("probability of first option displayed: "+ prob0.ToString());
             WorldManager.MeasureRoom(connectedroomcoord,roomcoord);
 
             //create the indicated room
@@ -58,6 +57,8 @@ public class DoorBehavior : MonoBehaviour
             
             //move to room
             WorldManager.MoveToRoom(connectedroomcoord);
+            //destroy previous room
+            Destroy(transform.parent.parent.gameObject);
 
         }
     }
